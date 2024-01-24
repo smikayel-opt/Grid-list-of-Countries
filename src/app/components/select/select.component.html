@@ -1,0 +1,6 @@
+<select >
+  <option class="select-name" selected>{{name}}</option>
+  <option *ngFor="let option of selectOptions" [value]="option.value">
+    {{ option.title }}
+  </option>
+</select>

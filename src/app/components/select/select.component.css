@@ -1,0 +1,18 @@
+select {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 20px;
+  padding: 20px;
+  background: white;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.select-name {
+  display: none;
+}
+
+select option {
+  border-radius: 15px;
+}
+

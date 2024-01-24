@@ -4,6 +4,7 @@ import { ICountry } from '../../interfaces/country.interface';
 import { CommonModule } from '@angular/common';
 import { LoadingComponent } from '../loading/loading.component';
 
+
 @Component({
   selector: 'app-country-grid',
   standalone: true,
@@ -23,6 +24,7 @@ export class CountryGridComponent {
     this.loading = true
     this.countriesSerivce.all().subscribe(countriesData => {
       this.countries = countriesData      
+      console.log(this.countries)
       this.loading = false
     })
   }
