@@ -21,7 +21,6 @@ describe('FilterComponent', () => {
     });
   });
 
-
   describe('onSelectedRegionChanged', () => {
     it('should emit onSelectChange event with the given value', () => {
       const mockValue = 'mockValue';

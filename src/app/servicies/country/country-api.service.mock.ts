@@ -2,9 +2,9 @@ import { CountryApiService } from "./country-api.service";
 
 
 /**
- * returns mock Movies Service
+ * returns mock Country Service
  */
-export function mockCompanyApiService(): CountryApiService {
+export function mockCountryApiService(): CountryApiService {
   return {
     API_URL: 'https://restcountries.com/v2/',
     http: jasmine.createSpyObj('HttpClient', ['get']),

@@ -4,11 +4,6 @@ import { Theme, ThemeService } from '../../servicies/theme/theme.service';
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
 
-  const themeServiceMock = {
-    getTheme: jasmine.createSpy('getTheme').and.returnValue(Theme.LIGHT),
-    changeTheme: jasmine.createSpy('changeTheme'),
-  };
-
   beforeEach(() => {
     component = new HeaderComponent(new ThemeService());
   });

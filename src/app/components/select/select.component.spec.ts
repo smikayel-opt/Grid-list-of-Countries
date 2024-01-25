@@ -1,12 +1,8 @@
 import { SelectComponent } from './select.component';
 import { Theme, ThemeService } from '../../servicies/theme/theme.service';
-import { BehaviorSubject } from 'rxjs';
 
 describe('SelectComponent', () => {
   let component: SelectComponent;
-  const themeServiceMock = {
-    theme$: new BehaviorSubject<Theme>(Theme.LIGHT),
-  };
 
   beforeEach(() => {
     component = new SelectComponent(new ThemeService());

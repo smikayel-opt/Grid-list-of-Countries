@@ -1,15 +1,12 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { CountryGridComponent } from './country-grid.component';
-import { BehaviorSubject, of, throwError } from 'rxjs';
+import { of, throwError } from 'rxjs';
 import { Theme, ThemeService } from '../../servicies/theme/theme.service';
-import { CountryApiService } from '../../servicies/country/country-api.service';
 import { mockCountryData } from '../../servicies/country/country-api.service.spec';
 import { ICountry } from '../../interfaces/country.interface';
 
 describe('CountryGridComponent', () => {
   let component: CountryGridComponent;
-  const countryApiServiceMock = jasmine.createSpyObj('MovieService', ['all', 'searchByRegion', 'searchByName']);
+  const countryApiServiceMock = jasmine.createSpyObj('mockCountryApiService', ['all', 'searchByRegion', 'searchByName']);
 
   beforeEach(() => {
     component = new CountryGridComponent(new ThemeService(), countryApiServiceMock);

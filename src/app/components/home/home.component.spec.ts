@@ -7,7 +7,6 @@ describe('HomeComponent', () => {
     component = new HomeComponent();
   });
 
-
   it('should create', () => {
     expect(component).toBeTruthy();
   });
