@@ -13,12 +13,11 @@ import { ISelect, SelectComponent } from '../select/select.component';
 })
 export class FilterComponent {
   @Output() onCountryChange = new EventEmitter<string>();
-  @Output() onSearchChange = new EventEmitter<string>();
+  @Output() onSelectChange = new EventEmitter<string>();
 
   selectOptions: ISelect[] = [
     { title: "Filter By Region", value: "" },
     { title: "Africa", value: "Africa" },
-    { title: "America", value: "America" },
     { title: "Asia", value: "Asia" },
     { title: "Europe", value: "Europe" },
     { title: "Oceania", value: "Oceania" },
@@ -35,7 +34,7 @@ export class FilterComponent {
   * @param value 
   */
   onSelectedRegionChanged(value: string) {
-    this.onSearchChange.emit(value)
+    this.onSelectChange.emit(value)
   }
 
 }

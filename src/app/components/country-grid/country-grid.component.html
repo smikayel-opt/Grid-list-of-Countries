@@ -1,7 +1,6 @@
-<app-loading *ngIf="isLoading"></app-loading>
 <div class="grid-container">
-  <app-filter></app-filter>
-  <div *ngIf="!isLoading" class="result-grid-container">
+  <app-filter (onCountryChange)="filterByName($event)" (onSelectChange)="filterByRegion($event)"></app-filter>
+  <div class="result-grid-container">
     <app-result-card
       *ngFor="let country of countries"
       [name]="country.name"
