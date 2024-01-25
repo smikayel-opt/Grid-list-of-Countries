@@ -11,4 +11,6 @@ export class ResultCardComponent {
   @Input() name: string = '';
   @Input() flag: string = '';
   @Input() population: string = '';
+  @Input() region: string = '';
+  @Input() capital: string = '';
 }

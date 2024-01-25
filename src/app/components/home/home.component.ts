@@ -13,7 +13,10 @@ import { ResultCardComponent } from '../result-card/result-card.component';
 })
 export class HomeComponent {
   name = 'Aasfasfasf'
-  imageUrl = 'https://picsum.photos/id/1011/800/450'
-  content = 'asdasdasdsad'
-  readMoreLink = '#'
+  imageUrl = 'https://flagcdn.com/ca.svg'
+  population = '5.4 M'
+  region = 'Region'
+  capital = '6.3M'
+
+  
 }

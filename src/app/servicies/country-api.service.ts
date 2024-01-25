@@ -15,4 +15,14 @@ export class CountryApiService {
     const query = 'all'
     return this.http.get<ICountry[]>(this.API_URL + query)
   }
+
+  searchByRegion(region: string): Observable<ICountry[]> {
+    const query = `region/${region}`
+    return this.http.get<ICountry[]>(this.API_URL + query)
+  }
+
+  searchByName(name: string): Observable<ICountry[]> {
+    const query = `name/${name}`
+    return this.http.get<ICountry[]>(this.API_URL + query)
+  }
 }
