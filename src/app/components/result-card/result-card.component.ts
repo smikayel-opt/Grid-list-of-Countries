@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Theme, ThemeService } from '../../servicies/theme/theme.service';
 
 @Component({
   selector: 'app-result-card',
@@ -13,4 +14,12 @@ export class ResultCardComponent {
   @Input() population: number = 0;
   @Input() region: string = '';
   @Input() capital: string = '';
+
+  theme: Theme = Theme.LIGHT
+
+  constructor(private themeService: ThemeService) { }
+
+  ngOnInit() {
+    this.themeService.theme$.subscribe(theme => this.theme = theme);
+  }
 }

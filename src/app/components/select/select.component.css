@@ -9,6 +9,16 @@ select {
   border-radius: 5px;
 }
 
+select.dark-theme {
+  background-color: #222;
+  color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 7px 29px 0px;
+  option {
+    background-color: #222;
+    color: #fff;
+  }
+}
+
 .select-name {
   display: none;
 }

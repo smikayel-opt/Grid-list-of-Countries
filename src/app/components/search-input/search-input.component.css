@@ -18,3 +18,15 @@
   font-size: 20px;
   padding: 5px;
 }
+
+.search-container.dark-theme {
+  background-color: #222;
+  color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 7px 29px 0px;
+
+  input,
+  label {
+    background-color: #222;
+    color: #fff;
+  }
+}

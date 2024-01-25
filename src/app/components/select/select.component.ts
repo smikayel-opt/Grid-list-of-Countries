@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Theme, ThemeService } from '../../servicies/theme/theme.service';
 
 
 export interface ISelect {
@@ -19,6 +20,13 @@ export class SelectComponent {
   @Input() selectedOption: string = '';
   @Input() selectOptions: ISelect[] = []
   @Output() onChange = new EventEmitter<string>();
+  theme: Theme = Theme.LIGHT
+
+  constructor(private themeService: ThemeService) { }
+
+  ngOnInit() {
+    this.themeService.theme$.subscribe(theme => this.theme = theme);
+  }
 
   /*
   * when the selected region will be changed it should give the event, so in the parrent component we can get access to

@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { CountryApiService } from '../../servicies/country-api.service';
+import { CountryApiService } from '../../servicies/country/country-api.service';
 import { ICountry } from '../../interfaces/country.interface';
 import { CommonModule } from '@angular/common';
 import { ResultCardComponent } from '../result-card/result-card.component';
 import { FilterComponent } from '../filter/filter.component';
-
+import { Theme, ThemeService } from '../../servicies/theme/theme.service';
 
 @Component({
   selector: 'app-country-grid',
@@ -17,11 +17,13 @@ export class CountryGridComponent {
   countries: ICountry[] = []
   selectedRegion: string = ''
   searchCountryName: string = ''
+  theme: Theme = Theme.LIGHT
 
-  constructor(private countryService: CountryApiService) { }
+  constructor(private themeService: ThemeService, private countryService: CountryApiService) { }
 
   ngOnInit() {
     this.getAllCountries()
+    this.themeService.theme$.subscribe(theme => this.theme = theme);
   }
 
   /**

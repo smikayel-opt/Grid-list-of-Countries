@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ICountry } from '../interfaces/country.interface';
+import { ICountry } from '../../interfaces/country.interface';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 

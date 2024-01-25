@@ -1,14 +1,16 @@
-<header>
+<header [class.dark-theme]="theme === 'dark'">
   <h1>Where in the world ?</h1>
 
   <div class="mode-switcher">
     <div class="toggle-container">
       <button class="switcher" (click)="swichMode()">
-        <i *ngIf="theme" class="fa-regular fa-moon fa-2x"></i>
-        <!-- <i class="fa-regular fa-lightbulb"></i> -->
+        <i *ngIf="theme === 'dark'" class="fa-regular fa-moon fa-2x" [class.dark-theme]="theme === 'dark'"></i>
+        <i *ngIf="theme !== 'dark'" class="fa-regular fa-lightbulb fa-2x"></i>
       </button>
     </div>
 
-    <label for="modeToggle" class="toggle-font">Dark Mode</label>
+    <label for="modeToggle" class="toggle-font">{{
+      theme !== "dark" ? "Dark Mode" : "Light Mode"
+    }}</label>
   </div>
 </header>

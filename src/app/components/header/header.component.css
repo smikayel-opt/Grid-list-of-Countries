@@ -1,12 +1,18 @@
 
 header {
-  background-color: var(--header-bg-color);
+  background-color: #fff;
   padding: 20px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   align-items: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header.dark-theme {
+  background-color: #222;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 h1 {
@@ -40,4 +46,8 @@ h1 {
 
 .toggle-font {
   font-size: 20px;
+}
+
+i.dark-theme {
+  color: white;
 }

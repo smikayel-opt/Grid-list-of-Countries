@@ -1,10 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { firstValueFrom } from 'rxjs';
+import { Theme, ThemeService } from '../../servicies/theme/theme.service';
 
-export enum Theme {
-  LIGHT = 'light',
-  DARK = 'dark'
-}
 
 @Component({
   selector: 'app-header',
@@ -16,9 +14,15 @@ export enum Theme {
 export class HeaderComponent {
   theme: Theme = Theme.LIGHT
 
-  swichMode() {
-    this.theme = (this.theme === Theme.LIGHT) ? Theme.DARK : Theme.LIGHT
+  constructor(private themeService: ThemeService) { }
 
-    console.log(this.theme)
+  ngOnInit() {
+    this.theme = this.themeService.getTheme()
+  }
+
+  swichMode() {
+    const changedTheme = this.theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT
+    this.themeService.changeTheme(changedTheme);
+    this.theme = changedTheme
   }
 }

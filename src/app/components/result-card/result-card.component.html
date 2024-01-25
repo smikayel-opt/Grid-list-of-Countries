@@ -3,11 +3,17 @@
     <figure>
       <img [src]="flag" alt="" />
     </figure>
-    <div class="card-body">
+    <div class="card-body" [class.dark-theme]="theme === 'dark'">
       <h2>{{ name }}</h2>
-      <p>Population: <span>{{ population }}</span></p>
-      <p>Region: <span>{{ region }}</span></p>
-      <p>Capital: <span>{{ capital }}</span></p>
+      <p>
+        Population: <span>{{ population }}</span>
+      </p>
+      <p>
+        Region: <span>{{ region }}</span>
+      </p>
+      <p>
+        Capital: <span>{{ capital }}</span>
+      </p>
     </div>
   </div>
 </article>

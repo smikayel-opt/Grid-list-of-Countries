@@ -44,6 +44,12 @@
   padding: 24px;
 }
 
+.card-body.dark-theme {
+  background-color: #222;
+  color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 4px 8px;
+}
+
 .card a {
   display: inline-flex;
   align-items: center;
