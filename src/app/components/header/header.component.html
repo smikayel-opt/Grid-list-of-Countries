@@ -3,7 +3,7 @@
 
   <div class="mode-switcher">
     <div class="toggle-container">
-      <button class="switcher" (click)="swichMode()">
+      <button class="switcher" (click)="switchMode()">
         <i *ngIf="theme === 'dark'" class="fa-regular fa-moon fa-2x" [class.dark-theme]="theme === 'dark'"></i>
         <i *ngIf="theme !== 'dark'" class="fa-regular fa-lightbulb fa-2x"></i>
       </button>

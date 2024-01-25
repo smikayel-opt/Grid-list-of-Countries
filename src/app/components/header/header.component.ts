@@ -20,7 +20,7 @@ export class HeaderComponent {
     this.theme = this.themeService.getTheme()
   }
 
-  swichMode() {
+  switchMode() {
     const changedTheme = this.theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT
     this.themeService.changeTheme(changedTheme);
     this.theme = changedTheme
