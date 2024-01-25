@@ -1,5 +1,14 @@
-<app-loading *ngIf="loading"></app-loading>
-
-<div *ngIf="!loading">
-  here
+<app-loading *ngIf="isLoading"></app-loading>
+<div class="grid-container">
+  <app-filter></app-filter>
+  <div *ngIf="!isLoading" class="result-grid-container">
+    <app-result-card
+      *ngFor="let country of countries"
+      [name]="country.name"
+      [flag]="country.flags.png || country.flags.svg"
+      [population]="country.population"
+      [region]="country.region"
+      [capital]="country.capital"
+    ></app-result-card>
+  </div>
 </div>

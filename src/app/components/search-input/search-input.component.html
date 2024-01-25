@@ -1,4 +1,4 @@
 <div class="search-container">
   <i class="fas fa-search"></i>
-  <input type="text" placeholder="Search for a country..." [(ngModel)]="value" />
+  <input type="text" placeholder="Search for a country..." [(ngModel)]="value" (keyup.enter)="onInputChange()"/>
 </div>

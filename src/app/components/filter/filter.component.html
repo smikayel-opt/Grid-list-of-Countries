@@ -1,7 +1,9 @@
 <div class="filtrs-container">
-  <app-search-input></app-search-input>
+  <app-search-input
+    (onChange)="onSearchQueryChanged($event)"
+  ></app-search-input>
   <app-select
     [selectOptions]="selectOptions"
-    name="Filter By Region"
+    (onChange)="onSelectedRegionChanged($event)"
   ></app-select>
 </div>

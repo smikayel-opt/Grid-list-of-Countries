@@ -1,0 +1,22 @@
+.result-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 150px;
+  justify-content: center;
+}
+
+.grid-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 75px;
+  padding: 20px; 
+  
+  @media screen and (min-width: 768px) {
+    padding: 30px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    padding: 50px 150px;
+  }
+}

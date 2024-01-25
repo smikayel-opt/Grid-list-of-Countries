@@ -1,5 +1,4 @@
-<select >
-  <option class="select-name" selected>{{name}}</option>
+<select [(ngModel)]="selectedOption" (change)="onSelectedOptionChange()">
   <option *ngFor="let option of selectOptions" [value]="option.value">
     {{ option.title }}
   </option>

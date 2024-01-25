@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+
 
 export interface ISelect {
   title: string
@@ -15,8 +16,16 @@ export interface ISelect {
   styleUrl: './select.component.css'
 })
 export class SelectComponent {
-  selectedOption: string = '';
-  @Input() name: string = '';
+  @Input() selectedOption: string = '';
   @Input() selectOptions: ISelect[] = []
+  @Output() onChange = new EventEmitter<string>();
+
+  /*
+  * when the selected region will be changed it should give the event, so in the parrent component we can get access to
+  * the changed value...
+  */
+  onSelectedOptionChange(): void {
+    this.onChange.emit(this.selectedOption);
+  }
 
 }

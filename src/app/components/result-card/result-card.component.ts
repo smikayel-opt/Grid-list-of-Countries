@@ -10,7 +10,7 @@ import { Component, Input } from '@angular/core';
 export class ResultCardComponent {
   @Input() name: string = '';
   @Input() flag: string = '';
-  @Input() population: string = '';
+  @Input() population: number = 0;
   @Input() region: string = '';
   @Input() capital: string = '';
 }
