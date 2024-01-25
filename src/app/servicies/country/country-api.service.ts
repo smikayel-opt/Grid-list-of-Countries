@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class CountryApiService {
   public API_URL = 'https://restcountries.com/v2/'
 
-  constructor(private http: HttpClient) { }
+  constructor(public http: HttpClient) { }
 
   /*
   * api for fetching the data about all countries

@@ -1,15 +1,29 @@
 import { SelectComponent } from './select.component';
-import { ThemeService } from '../../servicies/theme/theme.service';
+import { Theme, ThemeService } from '../../servicies/theme/theme.service';
+import { BehaviorSubject } from 'rxjs';
 
 describe('SelectComponent', () => {
   let component: SelectComponent;
+  const themeServiceMock = {
+    theme$: new BehaviorSubject<Theme>(Theme.LIGHT),
+  };
 
   beforeEach(() => {
     component = new SelectComponent(new ThemeService());
+
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  describe('ngOnInit', () => {
+    it('should set the theme based on the value from themeService.getTheme', () => {
+      const expectedTheme = Theme.LIGHT;
+
+      component.ngOnInit();
+      expect(component.theme).toBe(expectedTheme);
+    });
   });
 
   describe('onSelectedOptionChanged', () => {
@@ -19,7 +33,7 @@ describe('SelectComponent', () => {
 
       component.selectedOption = mockValue;
       component.onSelectedOptionChange();
-  
+
       expect(component.onChange.emit).toHaveBeenCalledWith(mockValue);
     });
   })
