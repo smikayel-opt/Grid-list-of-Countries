@@ -161,20 +161,17 @@ describe('CountryGridComponent', () => {
   });
   describe('getButtons', () => {
     it('should return an array of buttons', () => {
-      const currentPage = 3; // Replace with your test case
-      spyOn(component, 'getTotalPages').and.returnValue(10); // Replace with your test case
+      const currentPage = 3; 
+      spyOn(component, 'getTotalPages').and.returnValue(10);
 
       const result = component.getButtons(currentPage);
-      console.log(result)
       expect(result).toEqual([1, 2, 3, 4, 5, 6, '...', 10]);
     });
 
     it('should return an array of buttons', () => {
-      const currentPage = 3; // Replace with your test case
-      spyOn(component, 'getTotalPages').and.returnValue(3); // Replace with your test case
-
+      const currentPage = 3;
+      spyOn(component, 'getTotalPages').and.returnValue(3);
       const result = component.getButtons(currentPage);
-      console.log(result)
       expect(result).toEqual([1, 2, 3]);
     });
 
