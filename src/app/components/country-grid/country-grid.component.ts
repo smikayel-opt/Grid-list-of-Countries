@@ -29,6 +29,9 @@ export class CountryGridComponent {
 
   constructor(private themeService: ThemeService, private countryService: CountryApiService) { }
 
+  /**
+   * lifcicle method 
+   */
   ngOnInit() {
     this.getAllCountries();
     this.themeService.themeSource.subscribe(theme => this.theme = theme);
@@ -53,7 +56,7 @@ export class CountryGridComponent {
   }
 
   /**
-   * 
+   * when we are searching it's should set the value of current page = 1 and then call the filting method
    * @param searchCountryName country name from the input value
    */
   onSearchInputChange(searchCountryName: string): void {
@@ -63,7 +66,7 @@ export class CountryGridComponent {
   }
 
   /**
-   * 
+   * filter the country by theyer name
    * @param countryName country name for the filtration
    * @returns 
    */
@@ -86,7 +89,7 @@ export class CountryGridComponent {
   }
 
   /**
-   * 
+   * get filltered countries , filtered by region
    * @param region region name for the filtring with region 
    * @returns 
    */
@@ -99,7 +102,6 @@ export class CountryGridComponent {
     this.countryService.searchByRegion(region).subscribe(
       (countries) => {
         this.countries = countries;
-        console.log(countries)
         this.updateDisplayedCountries();
       },
       (error) => {
@@ -110,7 +112,8 @@ export class CountryGridComponent {
   }
 
   /**
-   * 
+   * when we are changing the page, this function should change the current page number
+   * and also it should update the data which should be shown in the page 
    * @param newPage new page numer, for the changing the page
    */
   onPageChange(newPage: number): void {
@@ -128,7 +131,7 @@ export class CountryGridComponent {
   }
 
   /**
-   * 
+   * open modal and set the modal data value
    * @param country set the country data for the modal
    */
   openModal(country: ICountry) {
@@ -136,6 +139,7 @@ export class CountryGridComponent {
   }
 
   /**
+   * close the modal 
    * the function which will close the modal 
    */
   closeModal() {

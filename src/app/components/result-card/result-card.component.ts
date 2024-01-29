@@ -15,7 +15,7 @@ export class ResultCardComponent {
   @Input() region: string = '';
   @Input() capital: string = '';
 
-  theme: Theme = Theme.LIGHT
+  theme: Theme = Theme.LIGHT;
 
   constructor(private themeService: ThemeService) { }
 

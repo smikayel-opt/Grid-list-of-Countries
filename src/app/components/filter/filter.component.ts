@@ -3,7 +3,6 @@ import { FormsModule } from '@angular/forms';
 import { SearchInputComponent } from '../search-input/search-input.component';
 import { ISelect, SelectComponent } from '../select/select.component';
 
-
 @Component({
   selector: 'app-filter',
   standalone: true,
@@ -24,6 +23,7 @@ export class FilterComponent {
   ]
 
   /**
+  * when search changed it will send changed value to his own parent component
   * @param value which was changed in filter with (onSearchQueryChanged)
   */
   onSearchQueryChanged(value: string) {
@@ -31,6 +31,7 @@ export class FilterComponent {
   }
 
   /**
+  * when selected region will be changed it will send to the component parrent with the event
   * @param value which was changed in filter with (onSelectedRegionChanged)
   */
   onSelectedRegionChanged(value: string) {

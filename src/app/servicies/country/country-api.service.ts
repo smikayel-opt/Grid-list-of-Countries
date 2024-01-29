@@ -21,7 +21,7 @@ export class CountryApiService {
   }
 
   /**
-   * 
+   * search the countries by regions
    * @param region region name
    * @returns 
   */
@@ -31,7 +31,7 @@ export class CountryApiService {
   }
 
   /**
-   * 
+   * search the countries by country name
    * @param name country name
    * @returns 
    */

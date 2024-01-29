@@ -7,7 +7,6 @@ describe('SelectComponent', () => {
 
   beforeEach(() => {
     component = new SelectComponent(mockThemeService());
-
   });
 
   it('should create', () => {
