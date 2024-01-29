@@ -3,7 +3,7 @@ import { ICountry } from '../../interfaces/country.interface';
 import { CommonModule } from '@angular/common';
 import { ResultCardComponent } from '../../components/result-card/result-card.component';
 import { FilterComponent } from '../../components/filter/filter.component';
-import { Theme, ThemeService } from '../../servicies/theme/theme.service';
+import { ThemeService } from '../../servicies/theme/theme.service';
 import { CountryApiService } from '../../servicies/country/country-api.service';
 import { CountryModalComponent } from '../country-modal/country-modal.component';
 

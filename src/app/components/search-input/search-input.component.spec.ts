@@ -1,6 +1,5 @@
 import { SearchInputComponent } from './search-input.component';
 import { mockThemeService } from '../../servicies/theme/theme.service.mock';
-import { Theme } from '../../servicies/theme/theme.service';
 
 describe('SearchInputComponent', () => {
   let component: SearchInputComponent;

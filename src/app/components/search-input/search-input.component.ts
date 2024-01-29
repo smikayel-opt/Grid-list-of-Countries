@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Theme, ThemeService } from '../../servicies/theme/theme.service';
+import { ThemeService } from '../../servicies/theme/theme.service';
 
 @Component({
   selector: 'app-search-input',

@@ -1,6 +1,5 @@
 import { CountryGridComponent } from './country-grid.component';
 import { of, throwError } from 'rxjs';
-import { Theme } from '../../servicies/theme/theme.service';
 import { mockCountryData } from '../../servicies/country/country-api.service.spec';
 import { ICountry } from '../../interfaces/country.interface';
 import { mockThemeService } from '../../servicies/theme/theme.service.mock';
@@ -163,7 +162,6 @@ describe('CountryGridComponent', () => {
     it('should return an array of buttons', () => {
       const currentPage = 3; 
       spyOn(component, 'getTotalPages').and.returnValue(10);
-
       const result = component.getButtons(currentPage);
       expect(result).toEqual([1, 2, 3, 4, 5, 6, '...', 10]);
     });

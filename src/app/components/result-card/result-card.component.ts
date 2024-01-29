@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Theme, ThemeService } from '../../servicies/theme/theme.service';
+import { ThemeService } from '../../servicies/theme/theme.service';
 
 @Component({
   selector: 'app-result-card',

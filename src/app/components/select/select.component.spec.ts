@@ -1,5 +1,4 @@
 import { SelectComponent } from './select.component';
-import { Theme } from '../../servicies/theme/theme.service';
 import { mockThemeService } from '../../servicies/theme/theme.service.mock';
 
 describe('SelectComponent', () => {

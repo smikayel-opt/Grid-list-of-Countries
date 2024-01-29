@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Theme, ThemeService } from '../../servicies/theme/theme.service';
+import { ThemeService } from '../../servicies/theme/theme.service';
 
 export interface ISelect {
   title: string
