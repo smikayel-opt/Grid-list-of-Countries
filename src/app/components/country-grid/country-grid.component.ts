@@ -143,4 +143,28 @@ export class CountryGridComponent {
   closeModal() {
     this.ModalState = undefined
   }
+
+  /**
+   * the function will return the list of the number which should be shown
+   * like '1'  '2'  '3'   '...' '15'
+   * @param currentPage the current page number 
+   * @returns 
+   */
+  getButtons(currentPage: number): (string | number)[] {
+    const buttons = [];
+    for (let i = 1; i <= this.getTotalPages(); i++) {
+      buttons.push((i === currentPage + 4 && i != this.getTotalPages()) ||
+        (i <= currentPage - 4 && i > 2)
+        ? "..."
+        : i)
+      if (i <= currentPage - 4 && i > 2) {
+        i = currentPage - 4;
+      }
+
+      if (i === currentPage + 4 && i != this.getTotalPages()) {
+        i = this.getTotalPages() - 1;
+      }
+    }
+    return buttons;
+  }
 }

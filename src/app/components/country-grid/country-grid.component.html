@@ -1,27 +1,35 @@
-<div class="grid-container" [ngClass]="{ 'dark-theme': themeService.getTheme() === 'dark' }">
+<div
+  class="grid-container"
+  [ngClass]="{ 'dark-theme': themeService.getTheme() === 'dark' }"
+>
   <div class="modal-box" *ngIf="ModalState">
-    <app-country-modal [country]="ModalState" (onClose)="closeModal()"></app-country-modal>
+    <app-country-modal
+      [country]="ModalState"
+      (onClose)="closeModal()"
+    ></app-country-modal>
   </div>
 
   <app-filter
     (onCountryChange)="onSearchInputChange($event)"
     (onSelectChange)="filterByRegion($event)"
   ></app-filter>
-  <div class="pagination-container">
-    <button
-      [disabled]="currentPage === 1"
-      (click)="onPageChange(currentPage - 1)"
-    >
-      Previous
-    </button>
-    <span>Page {{ currentPage }} of {{ getTotalPages() }}</span>
-    <button
-      [disabled]="currentPage === getTotalPages()"
-      (click)="onPageChange(currentPage + 1)"
-    >
-      Next
-    </button>
-  </div>
+
+  <ul class="pagination">
+    <li *ngFor="let button of getButtons(currentPage)">
+      <button
+        class="pagination-button"
+        [ngClass]="{
+          active: button === currentPage,
+          first: button === 1,
+          last: button === getTotalPages()
+        }"
+        (click)="button !== '...' && onPageChange(+button)"
+      >
+        {{ button }}
+      </button>
+    </li>
+  </ul>
+
   <div class="result-grid-container">
     <app-result-card
       *ngFor="let country of displayedCountries"
