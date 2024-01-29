@@ -10,23 +10,9 @@ import { Theme, ThemeService } from '../../servicies/theme/theme.service';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  theme: Theme = Theme.LIGHT;
+  constructor(public themeService: ThemeService) { }
 
-  constructor(private themeService: ThemeService) { }
-
-  /**
-   * angular lifcicle method
-   */
-  ngOnInit() {
-    this.theme = this.themeService.getTheme()
-  }
-
-  /**
-   * switchMode function which changing the mode
-   */
-  switchMode() {
-    const changedTheme = this.theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT
-    this.themeService.changeTheme(changedTheme);
-    this.theme = changedTheme;
+  getThemeEnum() {
+    return Theme
   }
 }

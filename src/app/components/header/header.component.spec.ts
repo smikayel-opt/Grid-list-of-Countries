@@ -12,31 +12,10 @@ describe('HeaderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-  describe('ngOnInit', () => {
-    it('should set the theme based on the value from themeService.getTheme', () => {
-      const expectedTheme = Theme.LIGHT;
-
-      component.ngOnInit();
-      expect(component.theme).toBe(expectedTheme);
-    });
-  });
-
-  describe('switchMode', () => {
-    it('should change the theme and call themeService.changeTheme', () => {
-      const initialTheme = component.theme;
-      const expectedTheme = initialTheme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT;
-      component.switchMode();
-      expect(component.theme).toBe(expectedTheme);
-    });
-
-    it('should change the theme and call themeService.changeTheme', () => {
-      component.switchMode(); // it should change the theme to the dark 
-      // then should be checked the theme changed or no 
-      const initialTheme = component.theme;
-      const expectedTheme = initialTheme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT;
-      component.switchMode();
-      expect(component.theme).toBe(expectedTheme);
+  describe('getThemeEnum', () => {
+    it('should return the Theme enum', () => {
+      const result = component.getThemeEnum();
+      expect(result).toEqual(Theme);
     });
   });
 });

@@ -3,7 +3,7 @@
     <figure>
       <img [src]="flag" alt="" />
     </figure>
-    <div class="card-body" [class.dark-theme]="theme === 'dark'">
+    <div class="card-body" [class.dark-theme]="themeService.getTheme() === 'dark'">
       <h2>{{ name }}</h2>
       <p>
         Population: <span>{{ population }}</span>

@@ -19,7 +19,6 @@ export class CountryGridComponent {
   displayedCountries: ICountry[] = [];
   selectedRegion: string = '';
   searchCountryName: string = '';
-  theme: Theme = Theme.LIGHT;
   ModalState?: ICountry
 
   // Pagination settings
@@ -27,14 +26,13 @@ export class CountryGridComponent {
   currentPage: number = 1;
 
 
-  constructor(private themeService: ThemeService, private countryService: CountryApiService) { }
+  constructor(public themeService: ThemeService, private countryService: CountryApiService) { }
 
   /**
    * lifcicle method 
    */
   ngOnInit() {
     this.getAllCountries();
-    this.themeService.themeSource.subscribe(theme => this.theme = theme);
   }
   /**
    * get all countries it will make call with api service

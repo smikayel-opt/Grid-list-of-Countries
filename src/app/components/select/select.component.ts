@@ -19,13 +19,8 @@ export class SelectComponent {
   @Input() selectedOption: string = '';
   @Input() selectOptions: ISelect[] = [];
   @Output() onChange = new EventEmitter<string>();
-  theme: Theme = Theme.LIGHT
 
-  constructor(private themeService: ThemeService) { }
-
-  ngOnInit() {
-    this.themeService.themeSource.subscribe(theme => this.theme = theme);
-  }
+  constructor(public themeService: ThemeService) { }
 
   /*
   * when the selected region will be changed it should give the event, so in the parrent component we can get access to

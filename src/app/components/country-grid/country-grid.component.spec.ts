@@ -14,9 +14,6 @@ describe('CountryGridComponent', () => {
   });
 
   describe('ngOnInit', () => {
-    it('should subscribe to themeService.themeSource', () => {
-      expect(component.theme).toBe(Theme.LIGHT);
-    });
     it('should call getAllCountries and subscribe to themeService.themeSource', () => {
       const getAllCountriesSpy = spyOn(component, 'getAllCountries');
       component.ngOnInit();

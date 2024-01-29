@@ -1,7 +1,7 @@
 <select
   [(ngModel)]="selectedOption"
   (change)="onSelectedOptionChange()"
-  [class.dark-theme]="theme === 'dark'"
+  [class.dark-theme]="themeService.getTheme() === 'dark'"
 >
   <option *ngFor="let option of selectOptions" [value]="option.value">
     {{ option.title }}

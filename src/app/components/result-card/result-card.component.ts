@@ -15,11 +15,5 @@ export class ResultCardComponent {
   @Input() region: string = '';
   @Input() capital: string = '';
 
-  theme: Theme = Theme.LIGHT;
-
-  constructor(private themeService: ThemeService) { }
-
-  ngOnInit() {
-    this.themeService.themeSource.subscribe(theme => this.theme = theme);
-  }
+  constructor(public themeService: ThemeService) { }
 }

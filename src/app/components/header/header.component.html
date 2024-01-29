@@ -1,9 +1,9 @@
-<header [class.dark-theme]="theme === 'dark'">
+<header [class.dark-theme]="themeService.getTheme() === 'dark'">
   <h1>Where in the world ?</h1>
 
   <div class="mode-switcher">
-    <div class="toggle-container" [ngSwitch]="theme">
-      <button class="switcher" (click)="switchMode()">
+    <div class="toggle-container" [ngSwitch]="themeService.getTheme()">
+      <button class="switcher" (click)="themeService.changeTheme(themeService.getTheme() === getThemeEnum().DARK ? getThemeEnum().LIGHT : getThemeEnum().DARK)">
         <ng-container *ngSwitchCase="'dark'">
           <i class="fa-regular fa-moon fa-2x dark-theme"></i>
         </ng-container>
@@ -14,7 +14,7 @@
     </div>
 
     <label for="modeToggle" class="toggle-font">{{
-      theme !== "dark" ? "Dark Mode" : "Light Mode"
+      themeService.getTheme() !== "dark" ? "Dark Mode" : "Light Mode"
     }}</label>
   </div>
 </header>

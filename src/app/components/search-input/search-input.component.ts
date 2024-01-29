@@ -12,13 +12,8 @@ import { Theme, ThemeService } from '../../servicies/theme/theme.service';
 export class SearchInputComponent {
   value: string = '';
   @Output() onChange = new EventEmitter<string>();
-  theme: Theme = Theme.LIGHT;
 
-  constructor(private themeService: ThemeService) { }
-
-  ngOnInit() {
-    this.themeService.themeSource.subscribe(theme => this.theme = theme);
-  }
+  constructor(public themeService: ThemeService) { }
 
   /*
   * On Input value change the function should be called so it will allow to gt the changed vaue from the parrent 

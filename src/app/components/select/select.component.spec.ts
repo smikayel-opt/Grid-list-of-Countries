@@ -13,15 +13,6 @@ describe('SelectComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  describe('ngOnInit', () => {
-    it('should set the theme based on the value from themeService.getTheme', () => {
-      const expectedTheme = Theme.LIGHT;
-
-      component.ngOnInit();
-      expect(component.theme).toBe(expectedTheme);
-    });
-  });
-
   describe('onSelectedOptionChanged', () => {
     it('should emit onChange event with the value onInputChange', () => {
       const mockValue = 'mockValue';
