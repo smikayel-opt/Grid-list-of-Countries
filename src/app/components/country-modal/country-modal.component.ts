@@ -2,7 +2,6 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ICountry } from '../../interfaces/country.interface';
 import { CommonModule } from '@angular/common';
 
-
 @Component({
   selector: 'app-country-modal',
   standalone: true,

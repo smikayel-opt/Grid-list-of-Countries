@@ -127,10 +127,17 @@ export class CountryGridComponent {
     return Math.ceil(this.countries.length / this.itemsPerPage);
   }
 
+  /**
+   * 
+   * @param country set the country data for the modal
+   */
   openModal(country: ICountry) {
     this.ModalState = country
   }
 
+  /**
+   * the function which will close the modal 
+   */
   closeModal() {
     this.ModalState = undefined
   }

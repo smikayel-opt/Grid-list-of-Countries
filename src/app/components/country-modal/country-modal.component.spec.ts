@@ -1,5 +1,3 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { CountryModalComponent } from './country-modal.component';
 
 describe('CountryModalComponent', () => {
