@@ -10,13 +10,20 @@ export enum Theme {
   providedIn: 'root'
 })
 export class ThemeService {
-  private themeSource = new BehaviorSubject<Theme>(Theme.LIGHT);
-  theme$ = this.themeSource.asObservable();
+  public themeSource = new BehaviorSubject<Theme>(Theme.LIGHT);
 
+  /**
+  * will change the theme source from dark to light.. or from the light to the dark
+  * @param theme
+  */
   changeTheme(theme: Theme) {
     this.themeSource.next(theme);
   }
 
+  /**
+   * 
+   * @returns 
+   */
   getTheme() {
     return this.themeSource.value
   }

@@ -23,21 +23,21 @@ export class CountryGridComponent {
 
   ngOnInit() {
     this.getAllCountries()
-    this.themeService.theme$.subscribe(theme => this.theme = theme);
+    this.themeService.themeSource.subscribe(theme => this.theme = theme);
   }
 
   /**
    * get all countries from the country service
    */
   getAllCountries(): void {
-    this.countryService.all().subscribe(contries => {
+    this.countryService.getAllCountries().subscribe((contries: ICountry[]) => {
       this.countries = contries
     })
   }
 
   /**
    * get filltered countries , filtered by country name
-   * @param countryName 
+   * @param countryName  the country name 
    * @returns 
    */
   filterByName(countryName: string) {
@@ -48,7 +48,7 @@ export class CountryGridComponent {
     }
 
     this.countryService.searchByName(countryName).subscribe(
-      (contries) => {
+      (contries: ICountry[]) => {
         this.countries = contries
       },
       (error) => {
@@ -58,7 +58,7 @@ export class CountryGridComponent {
 
   /**
    * get filltered countries , filtered by region
-   * @param region 
+   * @param region the region name
    * @returns 
    */
   filterByRegion(region: string) {

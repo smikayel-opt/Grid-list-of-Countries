@@ -10,14 +10,14 @@ import { Theme, ThemeService } from '../../servicies/theme/theme.service';
   styleUrl: './search-input.component.css'
 })
 export class SearchInputComponent {
-  value: string = ''
+  value: string = '';
   @Output() onChange = new EventEmitter<string>();
-  theme: Theme = Theme.LIGHT
+  theme: Theme = Theme.LIGHT;
 
   constructor(private themeService: ThemeService) { }
 
   ngOnInit() {
-    this.themeService.theme$.subscribe(theme => this.theme = theme);
+    this.themeService.themeSource.subscribe(theme => this.theme = theme);
   }
 
   /*

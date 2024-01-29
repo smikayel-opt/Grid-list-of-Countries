@@ -20,6 +20,6 @@ export class ResultCardComponent {
   constructor(private themeService: ThemeService) { }
 
   ngOnInit() {
-    this.themeService.theme$.subscribe(theme => this.theme = theme);
+    this.themeService.themeSource.subscribe(theme => this.theme = theme);
   }
 }

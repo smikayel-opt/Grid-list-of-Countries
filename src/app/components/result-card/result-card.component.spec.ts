@@ -1,13 +1,13 @@
 import { ResultCardComponent } from './result-card.component';
-import { Theme, ThemeService } from '../../servicies/theme/theme.service';
+import { Theme } from '../../servicies/theme/theme.service';
+import { mockThemeService } from '../../servicies/theme/theme.service.mock';
 
 describe('ResultCardComponent', () => {
   let component: ResultCardComponent;
 
   beforeEach(() => {
-    component = new ResultCardComponent(new ThemeService());
+    component = new ResultCardComponent(mockThemeService());
   });
-
 
   it('should create', () => {
     expect(component).toBeTruthy();
@@ -21,5 +21,4 @@ describe('ResultCardComponent', () => {
       expect(component.theme).toBe(expectedTheme);
     });
   });
-
 });

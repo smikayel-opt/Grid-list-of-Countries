@@ -1,11 +1,12 @@
 import { SelectComponent } from './select.component';
-import { Theme, ThemeService } from '../../servicies/theme/theme.service';
+import { Theme } from '../../servicies/theme/theme.service';
+import { mockThemeService } from '../../servicies/theme/theme.service.mock';
 
 describe('SelectComponent', () => {
   let component: SelectComponent;
 
   beforeEach(() => {
-    component = new SelectComponent(new ThemeService());
+    component = new SelectComponent(mockThemeService());
 
   });
 

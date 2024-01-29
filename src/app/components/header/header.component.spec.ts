@@ -1,11 +1,12 @@
 import { HeaderComponent } from './header.component';
-import { Theme, ThemeService } from '../../servicies/theme/theme.service';
+import { Theme } from '../../servicies/theme/theme.service';
+import { mockThemeService } from '../../servicies/theme/theme.service.mock';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
 
   beforeEach(() => {
-    component = new HeaderComponent(new ThemeService());
+    component = new HeaderComponent(mockThemeService());
   });
 
   it('should create', () => {

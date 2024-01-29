@@ -1,22 +1,23 @@
 import { CountryGridComponent } from './country-grid.component';
 import { of, throwError } from 'rxjs';
-import { Theme, ThemeService } from '../../servicies/theme/theme.service';
+import { Theme } from '../../servicies/theme/theme.service';
 import { mockCountryData } from '../../servicies/country/country-api.service.spec';
 import { ICountry } from '../../interfaces/country.interface';
+import { mockThemeService } from '../../servicies/theme/theme.service.mock';
 
 describe('CountryGridComponent', () => {
   let component: CountryGridComponent;
-  const countryApiServiceMock = jasmine.createSpyObj('mockCountryApiService', ['all', 'searchByRegion', 'searchByName']);
+  const countryApiServiceMock = jasmine.createSpyObj('mockCountryApiService', ['getAllCountries', 'searchByRegion', 'searchByName']);
 
   beforeEach(() => {
-    component = new CountryGridComponent(new ThemeService(), countryApiServiceMock);
+    component = new CountryGridComponent(mockThemeService(), countryApiServiceMock);
   });
 
   describe('ngOnInit', () => {
-    it('should subscribe to themeService.theme$', () => {
+    it('should subscribe to themeService.themeSource', () => {
       expect(component.theme).toBe(Theme.LIGHT);
     });
-    it('should call getAllCountries and subscribe to themeService.theme$', () => {
+    it('should call getAllCountries and subscribe to themeService.themeSource', () => {
       const getAllCountriesSpy = spyOn(component, 'getAllCountries');
       component.ngOnInit();
       expect(getAllCountriesSpy).toHaveBeenCalled();
@@ -26,9 +27,9 @@ describe('CountryGridComponent', () => {
   describe('getAllCountries', () => {
     it('should call countryService.all and update countries array', () => {
       const mockCountries: ICountry[] = mockCountryData
-      countryApiServiceMock.all.and.returnValue(of(mockCountries));
+      countryApiServiceMock.getAllCountries.and.returnValue(of(mockCountries));
       component.getAllCountries();
-      expect(countryApiServiceMock.all).toHaveBeenCalled();
+      expect(countryApiServiceMock.getAllCountries).toHaveBeenCalled();
       expect(component.countries).toEqual(mockCountries);
     });
   });

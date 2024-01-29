@@ -24,17 +24,16 @@ export class FilterComponent {
   ]
 
   /**
-  * @param value 
+  * @param value which was changed in filter with (onSearchQueryChanged)
   */
   onSearchQueryChanged(value: string) {
     this.onCountryChange.emit(value)
   }
 
   /**
-  * @param value 
+  * @param value which was changed in filter with (onSelectedRegionChanged)
   */
   onSelectedRegionChanged(value: string) {
     this.onSelectChange.emit(value)
   }
-
 }

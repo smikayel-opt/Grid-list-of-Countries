@@ -1,4 +1,4 @@
-<div class="grid-container" [class.dark-theme]="theme === 'dark'">
+<div class="grid-container"  [ngClass]="{'dark-theme': theme === 'dark'}">
   <app-filter (onCountryChange)="filterByName($event)" (onSelectChange)="filterByRegion($event)"></app-filter>
   <div class="result-grid-container">
     <app-result-card

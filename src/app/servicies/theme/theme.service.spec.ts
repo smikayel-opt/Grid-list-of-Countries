@@ -23,17 +23,4 @@ describe('ThemeService', () => {
       expect(themeService.getTheme()).toBe(Theme.DARK);
     });
   });
-
-  describe('theme$', () => {
-    it('should emit theme changes through the observable', (done: DoneFn) => {
-      const newTheme = Theme.DARK;
-
-      themeService.changeTheme(newTheme);
-      themeService.theme$.subscribe((theme) => {
-        expect(theme).toBe(newTheme);
-        done();
-      });
-
-    });
-  });
 });

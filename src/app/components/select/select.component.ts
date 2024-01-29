@@ -3,7 +3,6 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Theme, ThemeService } from '../../servicies/theme/theme.service';
 
-
 export interface ISelect {
   title: string
   value: string
@@ -18,14 +17,14 @@ export interface ISelect {
 })
 export class SelectComponent {
   @Input() selectedOption: string = '';
-  @Input() selectOptions: ISelect[] = []
+  @Input() selectOptions: ISelect[] = [];
   @Output() onChange = new EventEmitter<string>();
   theme: Theme = Theme.LIGHT
 
   constructor(private themeService: ThemeService) { }
 
   ngOnInit() {
-    this.themeService.theme$.subscribe(theme => this.theme = theme);
+    this.themeService.themeSource.subscribe(theme => this.theme = theme);
   }
 
   /*

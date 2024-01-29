@@ -1,24 +1,26 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { SearchInputComponent } from './search-input.component';
+import { mockThemeService } from '../../servicies/theme/theme.service.mock';
+import { Theme } from '../../servicies/theme/theme.service';
 
 describe('SearchInputComponent', () => {
   let component: SearchInputComponent;
-  let fixture: ComponentFixture<SearchInputComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [SearchInputComponent]
-    })
-    .compileComponents();
-    
-    fixture = TestBed.createComponent(SearchInputComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+  beforeEach(() => {
+    component = new SearchInputComponent(mockThemeService());
   });
+
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  describe('ngOnInit', () => {
+    it('should set the theme based on the value from themeService.getTheme', () => {
+      const expectedTheme = Theme.LIGHT;
+
+      component.ngOnInit();
+      expect(component.theme).toBe(expectedTheme);
+    });
   });
 
   describe('onInputChange', () => {
@@ -28,7 +30,7 @@ describe('SearchInputComponent', () => {
 
       component.value = mockValue;
       component.onInputChange();
-  
+
       expect(component.onChange.emit).toHaveBeenCalledWith(mockValue);
     });
   })
