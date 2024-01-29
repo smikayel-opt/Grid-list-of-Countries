@@ -5,11 +5,12 @@ import { ResultCardComponent } from '../../components/result-card/result-card.co
 import { FilterComponent } from '../../components/filter/filter.component';
 import { Theme, ThemeService } from '../../servicies/theme/theme.service';
 import { CountryApiService } from '../../servicies/country/country-api.service';
+import { CountryModalComponent } from '../country-modal/country-modal.component';
 
 @Component({
   selector: 'app-country-grid',
   standalone: true,
-  imports: [CommonModule, ResultCardComponent, FilterComponent],
+  imports: [CommonModule, ResultCardComponent, FilterComponent, CountryModalComponent],
   templateUrl: './country-grid.component.html',
   styleUrl: './country-grid.component.css'
 })
@@ -19,6 +20,7 @@ export class CountryGridComponent {
   selectedRegion: string = '';
   searchCountryName: string = '';
   theme: Theme = Theme.LIGHT;
+  ModalState?: ICountry
 
   // Pagination settings
   itemsPerPage: number = 25;
@@ -123,5 +125,13 @@ export class CountryGridComponent {
    */
   getTotalPages(): number {
     return Math.ceil(this.countries.length / this.itemsPerPage);
+  }
+
+  openModal(country: ICountry) {
+    this.ModalState = country
+  }
+
+  closeModal() {
+    this.ModalState = undefined
   }
 }

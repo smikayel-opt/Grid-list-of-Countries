@@ -146,4 +146,20 @@ describe('CountryGridComponent', () => {
       expect(component.filterByName).toHaveBeenCalledWith('NewCountry');
     });
   });
+
+  describe('openModal', () => {
+    it('should set ModalState to the provided country', () => {
+      const countryMock: ICountry = {} as ICountry;
+      component.openModal(countryMock);
+      expect(component.ModalState).toEqual(countryMock);
+    });
+  });
+
+  describe('closeModal', () => {
+    it('should set ModalState to undefined', () => {
+      component.ModalState = {} as ICountry;
+      component.closeModal();
+      expect(component.ModalState).toBeUndefined();
+    });
+  });
 });
