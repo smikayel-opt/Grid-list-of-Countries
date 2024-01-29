@@ -1,8 +1,26 @@
-<div class="grid-container"  [ngClass]="{'dark-theme': theme === 'dark'}">
-  <app-filter (onCountryChange)="filterByName($event)" (onSelectChange)="filterByRegion($event)"></app-filter>
+<div class="grid-container" [ngClass]="{ 'dark-theme': theme === 'dark' }">
+  <app-filter
+    (onCountryChange)="onSearchInputChange($event)"
+    (onSelectChange)="filterByRegion($event)"
+  ></app-filter>
+  <div class="pagination-container">
+    <button
+      [disabled]="currentPage === 1"
+      (click)="onPageChange(currentPage - 1)"
+    >
+      Previous
+    </button>
+    <span>Page {{ currentPage }} of {{ getTotalPages() }}</span>
+    <button
+      [disabled]="currentPage === getTotalPages()"
+      (click)="onPageChange(currentPage + 1)"
+    >
+      Next
+    </button>
+  </div>
   <div class="result-grid-container">
     <app-result-card
-      *ngFor="let country of countries"
+      *ngFor="let country of displayedCountries"
       [name]="country.name"
       [flag]="country.flags.png || country.flags.svg"
       [population]="country.population"

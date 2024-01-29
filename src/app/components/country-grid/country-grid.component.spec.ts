@@ -81,4 +81,69 @@ describe('CountryGridComponent', () => {
       expect(getAllCountriesSpy).toHaveBeenCalled();
     });
   });
+
+  describe('getTotalPages', () => {
+    it('should return the correct number of pages when countries.length is divisible by itemsPerPage', () => {
+      const country = {} as ICountry
+      component.countries = [country, country, country, country, country, country, country, country, country, country];
+      component.itemsPerPage = 3;
+
+      const result = component.getTotalPages();
+
+      expect(result).toBe(4); // 10 items / 3 itemsPerPage = 3.33 (rounded up to 4)
+    });
+
+    it('should return the correct number of pages when countries.length is not divisible by itemsPerPage', () => {
+      const country = {} as ICountry
+      component.countries = [country, country, country, country, country, country, country, country, country];
+      component.itemsPerPage = 4;
+
+      const result = component.getTotalPages();
+
+      expect(result).toBe(3); // 9 items / 4 itemsPerPage = 2.25 (rounded up to 3)
+    });
+
+    it('should return 0 when countries array is empty', () => {
+      component.countries = [];
+      component.itemsPerPage = 5;
+
+      const result = component.getTotalPages();
+
+      expect(result).toBe(0);
+    });
+
+    it('should return 1 when itemsPerPage is greater than or equal to the length of countries array', () => {
+      const country = {} as ICountry
+      component.countries = [country, country, country];
+      component.itemsPerPage = 3;
+
+      const result = component.getTotalPages();
+
+      expect(result).toBe(1);
+    });
+  });
+
+  describe('onPageChange', () => {
+    it('should update currentPage when a new page is selected', () => {
+      component.currentPage = 1;
+      component.onPageChange(2);
+      expect(component.currentPage).toBe(2);
+    });
+
+    it('should call updateDisplayedCountries when a new page is selected', () => {
+      spyOn(component, 'updateDisplayedCountries');
+
+      component.onPageChange(3);
+      expect(component.updateDisplayedCountries).toHaveBeenCalled();
+    });
+  });
+
+
+  describe('onSearchInputChange', () => {
+    it('should call filterByName with the updated searchCountryName when search input changes', () => {
+      spyOn(component, 'filterByName');
+      component.onSearchInputChange('NewCountry');
+      expect(component.filterByName).toHaveBeenCalledWith('NewCountry');
+    });
+  });
 });
