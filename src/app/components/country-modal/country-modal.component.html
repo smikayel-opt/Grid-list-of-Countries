@@ -1,0 +1,13 @@
+<div class="modal-container" *ngIf="country">
+  <div class="title-container">
+    <img class="flag-image" src="{{ country.flags.png }}" alt="Flag" />
+    <span>{{ country.name }}</span>
+  </div>
+  <div class="info-container">
+    <p>capital: {{ country.capital }}</p>
+    <p>population: {{ country.population }}</p>
+    <p>area: {{ country.area }}</p>
+    <p>independent: {{ country.independent }}</p>
+  </div>
+  <button class="button-24" (click)="handleOnClose()">Close</button>
+</div>

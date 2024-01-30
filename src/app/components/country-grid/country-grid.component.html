@@ -1,5 +1,44 @@
-<app-loading *ngIf="loading"></app-loading>
+<div
+  class="grid-container"
+  [ngClass]="{ 'dark-theme': themeService.getTheme() === 'dark' }"
+>
+  <div class="modal-box" *ngIf="ModalState">
+    <app-country-modal
+      [country]="ModalState"
+      (onClose)="closeModal()"
+    ></app-country-modal>
+  </div>
 
-<div *ngIf="!loading">
-  here
+  <app-filter
+    (onCountryChange)="onSearchInputChange($event)"
+    (onSelectChange)="filterByRegion($event)"
+  ></app-filter>
+
+  <ul class="pagination">
+    <li *ngFor="let button of getButtons(currentPage)">
+      <button
+        class="pagination-button"
+        [ngClass]="{
+          active: button === currentPage,
+          first: button === 1,
+          last: button === getTotalPages()
+        }"
+        (click)="button !== '...' && onPageChange(+button)"
+      >
+        {{ button }}
+      </button>
+    </li>
+  </ul>
+
+  <div class="result-grid-container">
+    <app-result-card
+      *ngFor="let country of displayedCountries"
+      [name]="country.name"
+      [flag]="country.flags.png || country.flags.svg"
+      [population]="country.population"
+      [region]="country.region"
+      [capital]="country.capital"
+      (click)="openModal(country)"
+    ></app-result-card>
+  </div>
 </div>

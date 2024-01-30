@@ -1,0 +1,9 @@
+<div class="filtrs-container">
+  <app-search-input
+    (onChange)="onSearchQueryChanged($event)"
+  ></app-search-input>
+  <app-select
+    [selectOptions]="selectOptions"
+    (onChange)="onSelectedRegionChanged($event)"
+  ></app-select>
+</div>
